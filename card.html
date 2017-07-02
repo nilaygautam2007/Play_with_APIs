@@ -21,7 +21,7 @@
       "heading":"Check Weather",
       "subheading":"Using OpenWeather API"
     };
-
+//Fetch data from geoip api
     $http.get("http://freegeoip.net/json/").then(function(response){
         vm.lat=response.data;
         var apiKey="acc2a483be3ac15141dfeadfad8c9064";
@@ -51,6 +51,7 @@
             vm.humid=res.data.main.humidity + "%";
             console.log(openWeatherURL);
 
+          //Setting background image according to the weather forecast
             switch (res.data.weather[0].icon) {
               case '01d': case '01n': {
                 vm.weatherBackground={"background-image": 'url("clear sky.jpg")',
@@ -105,6 +106,8 @@
   }]);
   </script>
 </head>
+  
+  <!--Using angular and bootstrap in body tag -->
 <body ng-app="weatherApp" ng-controller="weatherCtrl" class="text-center" ng-style="weatherBackground" >
 <!--  <div id="inputContainer" class="inputDemo" ng-controller="weatherCtrl as ctrl" ng-cloak> -->
 <div> <br><br>
@@ -113,6 +116,7 @@
   <!--  <md-content layout="row" flex="100" > -->
     <!--  <md-content layout="column" flex="30" > -->
 
+      <!-- Using angular material card to display info -->
         <md-card style="background-color:transparent" >
         <md-card-header>
         <!--   <md-card-avatar>
@@ -137,8 +141,6 @@
 <br><br><br><br>
 
 
-
-
 </div>
 <br><br>
 
@@ -161,10 +163,9 @@
       </md-card-title>
     </md-card-title-group>-->
     <md-card-content>
-
+    <!-- Using CSS animations -->
       <button class="button" type="button" data-hover="{{ftemp}}" data-active="TEMPERATURE"><span>{{temp}}</span></button>
-
-<!--<button data-text="Hover & Click me!" data-hover-text="{{temp}}" data-active-text="You did it!"></button>  -->  </md-card-content>
+    </md-card-content>
     </md-card>
 
     <md-card style="background-color:transparent">
